@@ -1,0 +1,37 @@
+<app-teacher-sidebar></app-teacher-sidebar>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<div class="body-wrapper">
+    <app-teacher-navbar></app-teacher-navbar>
+<div class="container-fluid">
+  
+
+<div *ngIf="children.length > 0">
+  <h2>Attendance for Bus {{ children[0].busnumber }}</h2>
+  <form (ngSubmit)="submitAttendance()">
+    <table>
+      <thead>
+        <tr>
+          <th>Child Name</th>
+          <th>Parent Name</th>
+          <th>Present</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let child of children">
+          <td>{{ child.firstname }} {{ child.lastname }}</td>
+          <td>{{ child.parentName }}</td>
+          <td><input type="checkbox" id="child-{{ child.childid }}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success" type="submit">Submit Attendance</button>
+  </form>
+</div>
+
+<div *ngIf="children.length === 0">
+  <p>No children available for this bus.</p>
+</div>
+</div>
+</div>
+</div>

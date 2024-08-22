@@ -1,0 +1,50 @@
+<app-parent-sidebar></app-parent-sidebar>
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <app-parent-navbar></app-parent-navbar>
+<div class="container-fluid">
+    <div class="col-lg-12 d-flex align-items-stretch">
+        <div class="card w-100">
+          <div class="card-body p-4">
+           
+              <div class="row justify-content-between">
+                <h3 class="card-title fw-semibold mb-4 col-4 col-md-2 btn">Notifications</h3> 
+                  </div>
+              <div class="row mb-4">
+              </div>
+              <table class="table table-striped text-nowrap mb-0 align-middle">
+                <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h4 class="fw-semibold mb-0">Date</h4>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h4 class="fw-semibold mb-0">Message</h4>
+                    </th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let notification of notify.AllParentNotifications">
+                   
+                    <td class="border-bottom-0">
+                      <p class="mb-0 fw-normal">{{notification.notificationdate | date}}</p>
+                    </td>
+                    <td class="border-bottom-0">
+                      <p class="mb-0 fw-normal">{{notification.message}}</p>
+                    </td>
+                    
+                    <td>
+                        <span (click)="deleteNotification(notification.notificationid)">
+                            <i class="ti ti-trash-off btn text-danger"></i>
+                          </span>
+                       
+                  </tr> 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+</div>
